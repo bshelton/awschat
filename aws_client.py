@@ -189,7 +189,7 @@ class AWSClient:
             else:
                 self.client.meta.service_model.service_name
 
-            logger.info(f"AWS {self.service_name} connection test successful")
+            logger.debug(f"AWS {self.service_name} connection test successful")
             return True
 
         except Exception as e:

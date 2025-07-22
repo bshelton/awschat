@@ -86,7 +86,7 @@ def list_ec2_instances() -> str:
     Returns a formatted list of all EC2 instances with key information.
     """
     try:
-        logger.info("Executing list_ec2_instances tool")
+        logger.debug("Executing list_ec2_instances tool")
         client = _get_ec2_client()
         response = client.describe_instances()
 
@@ -122,7 +122,7 @@ def get_ec2_instance_details(instance_id: str) -> str:
         instance_id: The ID of the EC2 instance (e.g., i-1234567890abcdef0)
     """
     try:
-        logger.info(
+        logger.debug(
             f"Executing get_ec2_instance_details tool for instance: {instance_id}"
         )
 
@@ -181,7 +181,7 @@ def list_running_ec2_instances() -> str:
     Returns a list of only running EC2 instances.
     """
     try:
-        logger.info("Executing list_running_ec2_instances tool")
+        logger.debug("Executing list_running_ec2_instances tool")
         client = _get_ec2_client()
         response = client.describe_instances(
             Filters=[{"Name": "instance-state-name", "Values": ["running"]}]
@@ -218,7 +218,7 @@ def search_ec2_instances(search_term: str) -> str:
         search_term: The search term to match against instance names or IDs
     """
     try:
-        logger.info(
+        logger.debug(
             f"Executing search_ec2_instances tool with search term: {search_term}"
         )
 

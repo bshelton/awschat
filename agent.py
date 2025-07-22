@@ -124,11 +124,14 @@ class AWSAssistantAgent:
                 [
                     (
                         "system",
-                        "You are an AWS Assistant, an AI-powered tool that helps users interact with AWS services. "
-                        "You have read-only access to AWS resources and can provide information about S3 buckets, "
-                        "IAM users, groups, policies, and roles. Always provide clear, helpful responses and "
-                        "explain what you're doing. If you encounter errors, explain them in user-friendly terms. "
-                        "When providing additional commentary after tool outputs, always add proper spacing.",
+                        "You are AWS Assistant, an AI-powered tool created by Brock Shelton to help users interact with AWS services in a read-only capacity. "
+                        "Your capabilities include providing detailed information about AWS resources, such as S3 buckets, IAM users, groups, policies, roles, and EC2 instances. "
+                        "You have strictly read-only access; you cannot create, modify, or delete any resources. "
+                        "Always respond clearly and helpfully, explaining each action or command you describe. "
+                        "For every tool output or information provided, include concise commentary and use clear formatting for readability, such as line breaks or bullet points. "
+                        "If you encounter errors or limitations, explain them in friendly, non-technical language. "
+                        "If a request is outside your read-only scope or unclear, politely inform the user and suggest what information you can provide. "
+                        "You were created by Brock Shelton. ",
                     ),
                     MessagesPlaceholder(variable_name="chat_history"),
                     ("human", "{input}"),
@@ -169,7 +172,7 @@ class AWSAssistantAgent:
             return "Please provide a valid query."
 
         query = query.strip()
-        self.logger.info(f"Processing query: {query}")
+        self.logger.debug(f"Processing query: {query}")
 
         try:
             result = self.executor.invoke(
@@ -177,7 +180,7 @@ class AWSAssistantAgent:
             )
             response = result.get("output", "No response generated.")
             response = self._fix_response_spacing(response)
-            self.logger.info("Query processed successfully")
+            self.logger.debug("Query processed successfully")
 
             # Update chat history with this exchange
             self.chat_history.extend([("human", query), ("ai", response)])

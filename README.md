@@ -6,8 +6,6 @@ An AI-powered assistant for AWS resource management that provides natural langua
 
 - **Natural Language Queries**: Ask questions about your AWS resources in plain English
 - **Comprehensive AWS Support**: Currently supports S3, IAM and EC2 services
-- **Robust Error Handling**: Graceful handling of AWS errors with user-friendly messages
-- **Comprehensive Logging**: Detailed logging for debugging and monitoring
 - **Retry Logic**: Automatic retry with exponential backoff for transient failures
 - **User-Friendly Interface**: Interactive CLI with helpful commands and status checking
 
@@ -21,27 +19,20 @@ An AI-powered assistant for AWS resource management that provides natural langua
 
 ### Installation
 
-1. **Clone the repository**
-
-   ```bash
-   git clone <repository-url>
-   cd aws-assistant
-   ```
-
-2. **Create a virtual environment**
+1. **Create a virtual environment**
 
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. **Install dependencies**
+2. **Install dependencies**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Configure AWS credentials** (choose one method):
+3. **Configure AWS credentials** (choose one method):
 
    **Option A: AWS CLI (Recommended)**
 
@@ -64,13 +55,13 @@ An AI-powered assistant for AWS resource management that provides natural langua
    # Edit ~/.aws/credentials with your credentials
    ```
 
-5. **Set up OpenAI API key**
+4. **Set up OpenAI API key**
 
    ```bash
    export OPENAI_API_KEY=your_openai_api_key
    ```
 
-6. **Run the assistant**
+5. **Run the assistant**
    ```bash
    python main.py
    ```

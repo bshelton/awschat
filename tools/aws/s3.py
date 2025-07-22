@@ -49,7 +49,7 @@ def list_s3_buckets() -> str:
     Returns a list of all S3 buckets in the AWS account.
     """
     try:
-        logger.info("Executing list_s3_buckets tool")
+        logger.debug("Executing list_s3_buckets tool")
         client = _get_s3_client()
         response = client.list_buckets()
 
