@@ -1,0 +1,39 @@
+# AWS Assistant Configuration
+app:
+  name: "AWS Assistant"
+  version: "1.0.0"
+  description: "An AI-powered assistant for AWS resource management"
+
+# OpenAI Configuration
+openai:
+  model: "gpt-4o-mini"
+  provider: "openai"
+  max_tokens: 5000
+  temperature: 0.1
+
+# AWS Configuration
+aws:
+  region: "us-east-1"  # Default region
+  max_retries: 3
+  timeout: 30
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "aws_assistant.log"
+  max_size: "10MB"
+  backup_count: 5
+
+# Agent Configuration
+agent:
+  verbose: true
+  max_iterations: 20
+  return_intermediate_steps: false
+
+# Available AWS Services
+services:
+  s3: true
+  iam: true
+  ec2: true
+  rds: false  # Future expansion
